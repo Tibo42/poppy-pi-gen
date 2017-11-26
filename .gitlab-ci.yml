@@ -12,6 +12,6 @@ ci_script:
     - echo "IMG_NAME='poppy-ergo-jr'" > config
     - touch ./stage3/SKIP ./stage4/SKIP
     - rm stage4/EXPORT*
-    - sh build-docker.sh
+    - bash build-docker.sh
     - ls -larth deploy/
     - set -e && curl --upload-file `ls deploy/*.zip` https://transfer.sh/
