@@ -5,6 +5,7 @@ ci_script:
     - docker:dind
 
   script:
+    - ls -larth && pwd
     - echo "IMG_NAME='poppy-ergo-jr'" > config
     - touch ./stage3/SKIP ./stage4/SKIP
     - rm stage4/EXPORT*
