@@ -1,10 +1,13 @@
 ci_script:
   tags: [linux,docker]
   image: docker:latest
+  variables:
+    DOCKER_DRIVER: overlay2
   services:
     - docker:dind
 
   script:
+    - apk add --update wget bash && rm -rf /var/cache/apk/*
     - ls -larth && pwd
     - echo "IMG_NAME='poppy-ergo-jr'" > config
     - touch ./stage3/SKIP ./stage4/SKIP
